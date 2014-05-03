@@ -61,6 +61,8 @@ Kuna ise DAO meetodeid leiutama ei pidanud, siis ei ole ka vajadust seda testida
 on tõenäoliselt juba testidega kaetud ning antud rakenduse testid ei pea testima kasutatavat
 komponenti.
 
+Lisatud testid mudeli valideerimise jaoks, kasutades RSpec testimisraamistikku.
+
 
 ### Valideerimine
 
