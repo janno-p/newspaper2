@@ -19,9 +19,9 @@ PostgreSQL tabeli `newspaper` ja `rake db:seed` käsuga lisasin loodud tabelisse
 mis olid eelnevalt lisatud `db/seeds.rb` faili.
 
 
-### *Routing*
+### Suunamised
 
-Kasutades Rails-i poolt pakutavaid suunamisi, tekitasin vastava suunamise eelnevalt loodud
+Kasutades Rails-i poolt pakutavaid suunamisi (*routing*), tekitasin vastava suunamise eelnevalt loodud
 kontrollerile. Kontrolli poolt teenindatavateks meetoditeks valisin välja:
 
   * `(GET) newspapers/index` - kuvab kõiki andmebaasi tabelist võetud objekte.

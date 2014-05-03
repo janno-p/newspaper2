@@ -4,6 +4,7 @@ class NewspapersController < ApplicationController
   end
 
   def edit
+    @newspaper = Newspaper.find(params[:id])
   end
 
   def update

@@ -1,0 +1,49 @@
+- content_for :title do
+  Ajaleht
+
+- if flash[:success]
+  %div(class="alert alert-success alert-dismissable")
+    %button(type="button" class="close" data-dismiss="alert" aria-hidden="true")
+      &times;
+    %p
+      %strong Muudatused on edukalt salvestatud!
+
+- if @newspaper.errors.any?
+  %div(class="alert alert-danger")
+    %p
+      %strong Muudatuste salvestamine ebaõnnestus!
+      Palun paranda allpool välja toodud vead.
+
+= form_for @newspaper, html: { :class => "form-horizontal", :role => "form" } do
+  %div(class="form-group")
+    %label(class="col-sm-2 control-label")
+      Id:
+    %div(class="col-sm-4")
+      %p(class="form-control-static")= @newspaper.id
+
+  %div{ class: ["form-group", ("has-error" if @newspaper.errors[:name].any?) ] }
+    = label_tag :name, 'Nimi:', class: 'col-sm-2 control-label'
+    %div(class="col-sm-4")
+      = text_field_tag(:name, @newspaper.name, class: 'form-control', placeholder: 'Ajalehe nimi')
+    -if @newspaper.errors[:name].any?
+      %div(class="col-sm-6")
+        - @newspaper.errors[:name].each do |error|
+          %p(class="help-block")= error.full_message
+
+  %div{ class: ["form-group", ("has-error" if @newspaper.errors[:founded_at].any?) ] }
+    = label_tag :founded_at, 'Esimene väljaanne:', class: 'col-sm-2 control-label'
+    %div(class="col-sm-4")
+      = text_field_tag(:founded_at, @newspaper.founded_at.strftime("%d.%m.%Y"), class: 'form-control', placeholder: 'PP.KK.AAAA')
+    -if @newspaper.errors[:founded_at].any?
+      %div(class="col-sm-6")
+        - @newspaper.errors[:founded_at].each do |error|
+          %p(class="help-block")= error.full_message
+
+  %div(class="form-group")
+    = label_tag :description, 'Kirjeldus:', class: 'col-sm-2 control-label'
+    %div(class="col-sm-4")
+      = text_area_tag :description, @newspaper.description, class: 'form-control', rows: 3
+
+  %div(class="form-group")
+    %div(class="col-sm-offset-2 col-sm-4")
+      = submit_tag 'Salvesta', class: 'btn btn-default'
