@@ -20,6 +20,8 @@ class NewspapersController < ApplicationController
   end
 
   def show
+    @newspaper = Newspaper.find_by_id(params[:id])
+    render json: @newspaper
   end
 
   private

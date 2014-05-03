@@ -44,6 +44,9 @@ Lehekülgede esitamiseks kasutasin HAML märgistuskeelt.
 Kuna Rails väljastab piisavalt detailset logi, siis käsitsi logimist ei olnud vaja juurde lisada.
 Rakenduse logi faili kuvatakse läbi `StaticController` klassi.
 
+Vajadusel saab sisseehitatud logimist kasutada ka rakendusespetsiifilist sõnumite logimiseks, kuid
+antud rakenduses selle jaoks vajadust ei tekkinud.
+
 
 ### Andmebaas
 
@@ -66,3 +69,7 @@ loomingulisemat lähenemist, kuna raamistiku poolt teisendatakse etteantud tekst
 kuupäevaks enne valideerimisi. Lahenduseks sai lisatud eraldi väli tekstilise kuju hoidmiseks, mida
 sai ka valideerida. Salvestamisel kasutati `before_save` *callback*-i, et kuupäeva väli väärtustada
 juba valideeritud tekstiväljast.
+
+Valideerimisvigade kasutajatele esitamiseks on lisab Rails automaatselt kõik tuvastatud probleemid
+mudeli juures mudeli enda külge, vastavale positsioonile `errors`, kust neid on võimalik vaadetes
+otsida ja kuvada.
