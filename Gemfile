@@ -23,3 +23,7 @@ end
 group :development do
   gem 'spring', '1.1.2'
 end
+
+group :development, :test do
+  gem 'rspec-rails', '2.14.2'
+end
