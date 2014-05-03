@@ -22,6 +22,6 @@
       %div(class="row" id="content-holder")
         %ol(class="breadcrumb")
           %li= link_to 'Ajalehed', newspapers_path
-          %li= link_to 'Logi', 'log.txt'
+          %li= link_to 'Logi', static_log_path
         %h1= yield :title
         =yield

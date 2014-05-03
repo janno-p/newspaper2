@@ -37,3 +37,9 @@ Määrasin rakenduse vaikimisi kontrolleriks `newspapers#index`.
 ### Vaated
 
 Lehekülgede esitamiseks kasutasin HAML märgistuskeelt.
+
+
+### Logimine
+
+Kuna Rails väljastab piisavalt detailset logi, siis käsitsi logimist ei olnud vaja juurde lisada.
+Rakenduse logi faili kuvatakse läbi `StaticController` klassi.
