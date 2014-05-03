@@ -4,7 +4,8 @@ class NewspapersController < ApplicationController
   end
 
   def edit
-    @newspaper = Newspaper.find(params[:id])
+    @newspaper = Newspaper.find_by_id(params[:id])
+    render :error if @newspaper.nil?
   end
 
   def update
