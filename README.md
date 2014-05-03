@@ -43,3 +43,26 @@ Lehekülgede esitamiseks kasutasin HAML märgistuskeelt.
 
 Kuna Rails väljastab piisavalt detailset logi, siis käsitsi logimist ei olnud vaja juurde lisada.
 Rakenduse logi faili kuvatakse läbi `StaticController` klassi.
+
+
+### Andmebaas
+
+Andmebaasiga suhtlemiseks kasutasin Rails-i sisseehitatud vaikimisi kasutatavad *ORM* lahendust
+nimega `ActiveRecord`. Täiendavaid andmebaasimeetodeid juurde luua ei olnud vaja, kuna kõik
+vajadused olid kaetud raamistiku poolt pakutavate meetodite näol.
+
+
+### Testimine
+
+Kuna ise DAO meetodeid leiutama ei pidanud, siis ei ole ka vajadust seda testida. `ActiveRecord` ise
+on tõenäoliselt juba testidega kaetud ning antud rakenduse testid ei pea testima kasutatavat
+komponenti.
+
+
+### Valideerimine
+
+Kasutatud Rails-i poolt pakutavaid valideerimisi. Kuupäeva formaadi kontrollimine nõudis
+loomingulisemat lähenemist, kuna raamistiku poolt teisendatakse etteantud tekstiline sisend
+kuupäevaks enne valideerimisi. Lahenduseks sai lisatud eraldi väli tekstilise kuju hoidmiseks, mida
+sai ka valideerida. Salvestamisel kasutati `before_save` *callback*-i, et kuupäeva väli väärtustada
+juba valideeritud tekstiväljast.

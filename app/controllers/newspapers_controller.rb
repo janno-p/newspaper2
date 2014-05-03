@@ -1,6 +1,6 @@
 class NewspapersController < ApplicationController
   def index
-    @newspapers = Newspaper.all
+    @newspapers = Newspaper.order(:id).all
   end
 
   def edit
@@ -9,8 +9,21 @@ class NewspapersController < ApplicationController
   end
 
   def update
+    @newspaper = Newspaper.find(params[:id])
+
+    if @newspaper.update_attributes(newspaper_params)
+      flash[:success] = true
+      redirect_to [:edit, @newspaper]
+    else
+      render :action => :edit
+    end
   end
 
   def show
   end
+
+  private
+    def newspaper_params
+      params.require(:newspaper).permit(:name, :founded_at_str, :description)
+    end
 end
