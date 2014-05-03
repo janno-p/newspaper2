@@ -1,0 +1,25 @@
+- content_for :title do
+  Ajalehtede nimekiri
+
+- if @newspapers.empty?
+  %div(class="alert alert-info")
+    %p
+      %strong Ajalehed puuduvad.
+      Rakenduses ei ole hetkel registreeritud mitte ühegi ajalehe andmeid.
+- else
+  %table(class="table table-striped")
+    %thead
+      %tr
+        %th #
+        %th Nimi
+        %th Esimene väljaanne
+        %th &nbsp;
+        %th &nbsp;
+    %tbody
+      - @newspapers.each do |newspaper|
+        %tr
+          %td= newspaper.id
+          %td= newspaper.name
+          %td= newspaper.founded_at.strftime("%d.%m.%Y")
+          %td= link_to 'Kirjeldus', '#', { :class => 'newspaper-description', :'data-id' => newspaper.id }
+          %td= link_to 'Muuda', [:edit, newspaper]
