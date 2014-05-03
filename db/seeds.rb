@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Newspaper.create([
+  { name: 'Eesti Päevaleht', founded_at: Date.civil(1905, 12, 16) },
+  { name: 'Postimees', founded_at: Date.civil(1857, 6, 5) },
+  { name: 'The New York Times', founded_at: Date.civil(1851, 9, 18) }
+])
