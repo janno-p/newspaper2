@@ -2,8 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready(() ->
-  $(".newspaper-description").click(() ->
+ready = ->
+  $(".newspaper-description").click ->
     $.getJSON "newspapers/" + $(this).attr("data-id"), (data) ->
       panel = $('#content-holder').find('#description-panel')
       if panel.length < 1
@@ -43,5 +43,6 @@ $(document).ready(() ->
       $('#description-panel textarea[name="description"]').text(data.description || '')
       panel.show()
     false
-  )
-)
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
