@@ -18,10 +18,10 @@ ready = ->
                                                                                 .append($('<a>').attr('href', '#')
                                                                                                 .addClass('btn btn-default btn-sm')
                                                                                                 .append($('<span>').addClass('icon-remove'))
-                                                                                                .click(() ->
-                                                                                                    $('#description-panel').hide()
-                                                                                                    false
-                                                                                                ))))
+                                                                                                .click ->
+                                                                                                  $('#description-panel').hide()
+                                                                                                  false
+                                                                                                )))
                                             .append($('<div>').addClass('panel-body')
                                                               .append($('<div>').addClass('form-horizontal')
                                                                                 .append($('<div>').addClass('form-group')
